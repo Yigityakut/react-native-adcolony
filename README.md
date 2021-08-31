@@ -2,7 +2,7 @@
 
 ## Getting started
 
-`$ npm install react-native-adcolony --save`
+`$ npm install https://github.com/Yigityakut/react-native-adcolony.git --save`
 
 ### Mostly automatic installation
 
@@ -12,6 +12,22 @@
 ```javascript
 import Adcolony from 'react-native-adcolony';
 
-// TODO: What to do with the module?
-Adcolony;
+const APPID = 'appa****YOUR APP ID****';
+const ZONEID = '*** YOUR ZONE ID***';
+
+ configure = () => {
+    Adcolony.configure(APPID, ZONEID);
+  };
+
+  load = () => {
+    Adcolony.loadAds(ZONEID);
+  };
+
+  show = () => {
+    Adcolony.isReady(ZONEID, (ready)=>{
+      if (ready) 
+        Adcolony.showAdInterstitial(ZONEID, () => { });
+    });
+  };
+
 ```
