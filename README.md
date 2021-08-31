@@ -1,12 +1,10 @@
 # react-native-adcolony
 
+Please note that this module only supports Android at the moment. Feel free to contribute IOS implementation.
+
 ## Getting started
 
 `$ npm install https://github.com/Yigityakut/react-native-adcolony.git --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-adcolony`
 
 ## Usage
 ```javascript
