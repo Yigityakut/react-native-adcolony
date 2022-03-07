@@ -150,8 +150,8 @@ public class AdcolonyModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void configure(final String appId,final String zoneId) {
-    AdColony.configure(getCurrentActivity(), appId, zoneId);
+  public void configure(final String appId,final String... zoneIds) {
+    AdColony.configure(getCurrentActivity(), appId, zoneIds);
   }
 
     @Override
