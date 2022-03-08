@@ -23,11 +23,11 @@ public class AdcolonyModule extends ReactContextBaseJavaModule {
   private final HashMap<String, AdColonyInterstitial> mAds = new HashMap<>();
   private final HashMap<String, Callback> mClosedCallbacks = new HashMap<>();
   private final HashMap<String, Callback> mRewardCallbacks = new HashMap<>();
-  
-    public AdcolonyModule(ReactApplicationContext reactContext) {
-        super(reactContext);
-        this.reactContext = reactContext;
-    }
+
+  public AdcolonyModule(ReactApplicationContext reactContext) {
+    super(reactContext);
+    this.reactContext = reactContext;
+  }
 
   private final AdColonyRewardListener mRewardListener = new AdColonyRewardListener() {
     @Override
@@ -150,13 +150,18 @@ public class AdcolonyModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void configure(final String appId,final String... zoneIds) {
-    AdColony.configure(getCurrentActivity(), appId, zoneIds);
+  public void configure(final String appId,final String interstitialZoneId, final String rewardedZoneId) {
+    AdColony.configure(getCurrentActivity(), appId, new String[]{interstitialZoneId,rewardedZoneId});
   }
 
-    @Override
-    public String getName() {
-        return "Adcolony";
-    }
+  @ReactMethod
+  public void setTestModeEnabled(Boolean testMode) {
+    AdColonyAppOptions appOptions = AdColony.getAppOptions().setTestModeEnabled(testMode);
+    AdColony.setAppOptions(appOptions);
+  }
 
+  @Override
+  public String getName() {
+    return "Adcolony";
+  }
 }
