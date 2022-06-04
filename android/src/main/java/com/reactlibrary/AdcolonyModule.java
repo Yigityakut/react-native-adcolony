@@ -160,6 +160,11 @@ public class AdcolonyModule extends ReactContextBaseJavaModule {
     AdColony.setAppOptions(appOptions);
   }
 
+  @ReactMethod
+  public void showAdBanner(final String zoneId) {
+    AdColony.requestAdView(zoneId, null, AdColonyAdSize.BANNER);
+  }
+
   @Override
   public String getName() {
     return "Adcolony";
